@@ -1,3 +1,2 @@
-const arr =[1,32,5,2]
-arr.sort()
-console.log(arr)
+const obj = null
+console.log(obj.name)
