@@ -72,14 +72,14 @@
 //     value: 'okkok'
 // })
 // console.log(Object.getOwnPropertyNames(obj))
-function Person(){
+// function Person(){
 
-}
-Person.prototype = {
-    name: 'xz'
-}
+// }
+// Person.prototype = {
+//     name: 'xz'
+// }
 
-const person = new Person()
-console.log(Person === Person.prototype.constructor)
+// const person = new Person()
+// console.log(Person === Person.prototype.constructor)
 
 
