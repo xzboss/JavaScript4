@@ -61,17 +61,25 @@
 // })
 // console.log(Object.getOwnPropertyDescriptors(obj))
 
-const obj = {
-    name: '1',
-    age: 'age',
-    [Symbol()]: 'sy'
-}
-obj.__proto__.other = 'yy'
-Object.defineProperty(obj, 'ko',{
-    enumerable: true,
-    value: 'okkok'
-})
-console.log(Object.getOwnPropertyNames(obj))
+// const obj = {
+//     name: '1',
+//     age: 'age',
+//     [Symbol()]: 'sy'
+// }
+// obj.__proto__.other = 'yy'
+// Object.defineProperty(obj, 'ko',{
+//     enumerable: true,
+//     value: 'okkok'
+// })
+// console.log(Object.getOwnPropertyNames(obj))
+function Person(){
 
+}
+Person.prototype = {
+    name: 'xz'
+}
+
+const person = new Person()
+console.log(Person === Person.prototype.constructor)
 
 
