@@ -21,13 +21,11 @@
 //     writable:true
 // })
 // for(const i in obj){
-//     console.log(i) 
+//     console.log(i)
 // }
 // console.log(Object.keys(obj))
 // console.log(Object.getOwnPropertyNames(obj))
 // console.log(Object.getOwnPropertySymbols(obj))
-
-
 
 // const obj = {}
 // Object.prototype.pro = {}
@@ -82,4 +80,76 @@
 // const person = new Person()
 // console.log(Person === Person.prototype.constructor)
 
+// function Person(){
 
+// }
+// const obj = {}
+// console.log(obj.constructor)
+
+// // 原型链实现继承
+// function Person() {}
+// function Kid() {}
+// Person.prototype.say = function () {
+//   console.log("I am person");
+// };
+
+// Kid.prototype = new Person();
+// const kid = new Kid();
+// kid.say(); // I am person
+// console.log(kid.constructor); // Person
+// console.log(kid instanceof Kid);
+
+// 盗用构造函数
+// function Person() {
+//   this.name = "person";
+// }
+// function Kid() {
+//   Person.call(this);
+// }
+// const kid = new Kid();
+// console.log(kid);
+
+// 组合式继承
+
+// function Person(name) {
+//   this.name = name || "person";
+// }
+// Person.prototype.say = () => {
+//   console.log("person-proto-say");
+// };
+// function Kid(name) {
+//   Person.call(this, name);
+// }
+// Kid.prototype = new Person();
+// const kid = new Kid("xz");
+// kid.say();
+// console.log(kid);
+
+// 原型式继承
+
+// const Person = {
+//   name: "person"
+// };
+// // Object.create大致实现
+// function create(proto) {
+//   function Kid() {}
+//   Kid.prototype = proto;
+//   return new Kid();
+// }
+// const kid = create(Person);
+
+// 寄生式继承
+
+function Person() {}
+Person.prototype.say = () => {
+  console.log("person");
+};
+function inherit(child, person) {
+  let proto = Object(person.prototype);
+  proto.constructor = child;
+  child.prototype = proto;
+}
+function Kid() {}
+inherit(Kid, Person);
+const kid = new Kid();
+kid.say();
